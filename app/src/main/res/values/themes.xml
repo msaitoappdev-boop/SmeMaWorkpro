@@ -1,0 +1,18 @@
+<resources>
+    <!-- メインテーマ -->
+    <style name="Theme.SmeMaWorkpro" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="android:statusBarColor">?android:attr/colorBackground</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- スプラッシュ画面用テーマ (Android 12+) -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- 背景色: アプリの背景と同じティール系の非常に淡い色 -->
+        <item name="windowSplashScreenBackground">#E0F2F1</item>
+        <!-- アイコン: 作成したクイズアイコンの前景 -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <!-- スプラッシュ終了後に表示するテーマ -->
+        <item name="postSplashScreenTheme">@style/Theme.SmeMaWorkpro</item>
+    </style>
+</resources>

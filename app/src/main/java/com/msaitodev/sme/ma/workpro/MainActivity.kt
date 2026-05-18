@@ -9,12 +9,15 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.msaitodev.core.ads.InterstitialHelper
 import com.msaitodev.core.ads.RewardedHelper
+import com.msaitodev.core.notifications.ReminderRepository
+import com.msaitodev.core.notifications.ReminderScheduler
 import com.msaitodev.quiz.core.domain.repository.PremiumRepository
 import com.msaitodev.quiz.core.domain.repository.RemoteConfigRepository
 import com.msaitodev.quiz.core.domain.repository.SyncRepository
 import com.msaitodev.sme.ma.workpro.ui.AppNavHost
 import com.msaitodev.sme.ma.workpro.ui.theme.SmeMaTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -35,6 +38,9 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var syncRepo: SyncRepository
 
+    @Inject
+    lateinit var reminderRepo: ReminderRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,6 +48,23 @@ class MainActivity : ComponentActivity() {
         //enableEdgeToEdge()
 
         Log.i("MainActivity", "onCreate called")
+
+        // 💡 起動時にリマインダーのスケジュールを確実にする
+        lifecycleScope.launch {
+            try {
+                val config = reminderRepo.reminderConfig.first()
+                if (config.enabled) {
+                    ReminderScheduler.scheduleDaily(
+                        context = applicationContext,
+                        hour = config.hour,
+                        minute = config.minute
+                    )
+                    Log.d("MainActivity", "Reminder scheduled: ${config.hour}:${config.minute}")
+                }
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Failed to schedule reminder on startup", e)
+            }
+        }
 
         lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onResume(owner: LifecycleOwner) {

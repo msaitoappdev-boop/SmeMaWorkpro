@@ -7,20 +7,20 @@
 
 - **配置場所**: `app/src/main/assets/quiz_data/{index}_{category_name}/`
 - **命名規則**: `questions_{index}.bin`
-- **カテゴリーIDとIDプレフィックス**:
-    - `01_fundamentals`: `fu` (中小M&Aの基礎知識)
-    - `02_process`: `pr` (M&Aの手続き・プロセス)
-    - `03_legal`: `le` (法務・コンプライアンス)
-    - `04_finance`: `fi` (会計・税務・バリュエーション)
-    - `05_pmi`: `pm` (PMI・事業承継の実務)
+- **カテゴリーIDとIDプレフィックス (2026年度新試験準拠)**:
+    - `01_practice`: `pa` (M&A実務)
+    - `02_ethics`: `et` (倫理・行動規範)
+    - `03_finance`: `fi` (財務・税務)
+    - `04_legal`: `le` (法務)
+    - `05_comprehensive`: `cp` (総合問題)
 
 ## 2. 更新・追加手順とスケジュール
 1.  **データの準備**: 元データ（JSON等）を暗号化ツール（外部）を使用して `.bin` 形式に変換します。
     - ソース管理上の構成（参考）: `master_data/quiz_data/{index}_{category_name}/questions_{file_index}.json`
 2.  **月次リリースのルール**: 毎月末に翌月分をリリースするペースで追加します。
     - **ファイル分割**: 既存のファイルを編集するのではなく、新しいインデックス（連番）を使用して新規ファイルとして作成してください。
-        - 4月分：`questions_02.json` (完了)
-        - 5月分：`questions_03.json` (完了)
+        - 4月分：`questions_02.json` 
+        - 5月分：`questions_03.json` 
         - 6月分：`questions_04.json` ...と順次追加。
     - **追加量**: 毎月各カテゴリー20問ずつ（計100問）を追加します。
 3.  **配置**: 該当するインデックスとカテゴリ名を持つディレクトリに `questions_{index}.bin` ファイルを配置します。

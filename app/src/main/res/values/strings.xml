@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">中小M&amp;A資格 毎日3問トレーナー</string>
+    <string name="app_name">中小M&amp;A 毎日3問トレーナー</string>
     <string name="privacy_policy_url">https://msaitodev.com/privacy-policy.html</string>
     <string name="subscription_management_url" translatable="false">https://play.google.com/store/account/subscriptions</string>
 
@@ -40,12 +40,12 @@
     <string name="settings_weakness_mode_title">弱点特訓モード</string>
     <string name="settings_weakness_mode_desc">ONにすると、過去に間違えた問題を優先的に出題します。</string>
 
-    <!-- Category Names (Used for Analysis) -->
-    <string name="cat_01_fundamentals">中小M&amp;Aの基礎知識</string>
-    <string name="cat_02_process">M&amp;Aの手続き・プロセス</string>
-    <string name="cat_03_legal">法務・コンプライアンス</string>
-    <string name="cat_04_finance">会計・税務・バリュエーション</string>
-    <string name="cat_05_pmi">PMI・事業承継の実務</string>
+    <!-- Category Names (2026年度新試験準拠) -->
+    <string name="cat_01_practice">M&amp;A実務</string>
+    <string name="cat_02_ethics">倫理・行動規範</string>
+    <string name="cat_03_finance">財務・税務</string>
+    <string name="cat_04_legal">法務</string>
+    <string name="cat_05_comprehensive">総合問題</string>
     <string name="cat_unclassified">未分類</string>
 
     <!-- Dialogs -->

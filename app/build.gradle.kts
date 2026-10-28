@@ -30,8 +30,8 @@ android {
         applicationId = "com.msaitodev.sme.ma.workpro"
         minSdk = 24
         targetSdk = 36
-        versionCode = 6
-        versionName = "1.2.0"
+        versionCode = 8
+        versionName = "1.2.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
